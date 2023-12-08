@@ -1,5 +1,9 @@
+from collections import namedtuple
+
 HOTEL_FLOORS = 4
 ROOMS_PER_FLOOR = 100
+
+RoomNumber = namedtuple('Point', ['floor', 'door'])
 
 class _RoomDatabase:
     def __init__(self, rooms):
@@ -10,7 +14,7 @@ class _RoomDatabase:
 
     @classmethod
     def _generate_rooms(cls, noof_floors=HOTEL_FLOORS, rooms_per_floor=ROOMS_PER_FLOOR):
-        room_nos = [(i*rooms_per_floor)+j for i in range(noof_floors) for j in range(1, rooms_per_floor+1)]
+        room_nos = [RoomNumber(floor, door) for floor in range(noof_floors) for door in range(1, rooms_per_floor+1)]
         rooms = [Room(room_no) for room_no in room_nos]
         for room in rooms:
             room.vacate()
@@ -34,5 +38,5 @@ class Room:
 
 room_database = _RoomDatabase._generate_rooms()
 
-def get_rooms():
+def get_all_rooms():
     return room_database.get_rooms()
