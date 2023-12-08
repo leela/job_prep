@@ -58,7 +58,7 @@ def named_tuple_sort(items, sort_order):
         res = sorted(res, key=lambda item: getattr(item, each))
     return res
 
-def get_empty_room(rooms, search_by="round_robin"):
-    search_algo = RoomSearchSystem()._get_search_algo(search_by)
+def get_vacant_room(rooms, search_algo="round_robin"):
+    search_algo = RoomSearchSystem()._get_search_algo(search_algo)
     search_algo._build_data(rooms)
     return search_algo.find_empty()
