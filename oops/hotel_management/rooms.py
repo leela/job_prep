@@ -6,7 +6,7 @@ HOTEL_FLOORS = 4
 ROOMS_PER_FLOOR = 100
 
 room_types = Enum("RoomTypes", ["Regular", "Deluxe", "Luxury"])
-RoomNumber = namedtuple('Point', ['floor', 'door'])
+RoomNumber = namedtuple('RoomNumber', ['floor', 'door'])
 
 
 class _RoomDatabase:
