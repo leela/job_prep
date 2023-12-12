@@ -28,10 +28,10 @@ class _Guests:
         return self.data.get(phone_no)
 
     @classmethod
-    def build_guestDS(cls, guests):
-        ds = cls()
-        ds._build_data(guests)
-        return ds
+    def build_guestdb(cls, guests):
+        guests = cls()
+        guests._build_data(guests)
+        return guests
     
     def add_guest(self, guest):
         self._build_data([guest])
