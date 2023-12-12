@@ -42,7 +42,6 @@ class SlotDB:
     def _generate_slots(self, slot_type):
         slots = []
         filtered_spaces = self._filter_spaces_by_slot_type(slot_type)
-        print(filtered_spaces)
         for space, noof_lots in filtered_spaces.items():
             space_name, floor_no, _ = space
             slots.extend(
