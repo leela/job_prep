@@ -16,7 +16,6 @@ assert guest1.phone_no == "+12345678"
 assert room1.is_vacant == False
 assert room1.room_no.floor == 0
 assert room1.room_no.door == 1
-guests.add_guest(guest1)
 
 # Get guest1 by phone number
 assert guests.getby_phone_no("+12345678") == guest1

@@ -7,12 +7,16 @@ class Guest:
 
     def set_room(self, room):
         self.room = room
+        get_guests_database().add_guest(self)
 
     def vacate(self):
         self.room.vacate()
+        get_guests_database().remove_guest(self)
 
 
-class GuestDS:
+class _Guests:
+    """Add, remove and access guests information.
+    """
     def __init__(self):
         self.data = {}
 
@@ -36,5 +40,7 @@ class GuestDS:
         del self.data[guest.phone_no]
 
 
+guests = _Guests()
+
 def get_guests_database():
-    return GuestDS()
+    return guests
