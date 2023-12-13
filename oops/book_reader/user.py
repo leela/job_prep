@@ -55,7 +55,6 @@ class _Users:
         return [user for user in self._users if user.is_active()]
 
     def can_add_active_user(self):
-        print("Allowed active users: ", ALLOWED_ACTIVE_USERS)
         return len(self.get_active_users()) < ALLOWED_ACTIVE_USERS
 
 users = _Users()
